@@ -3,9 +3,9 @@ Changes cyrillic symbols into latin ones according to http://bg.wikisource.org/w
 
 Usage example:
 ```
-npm install transliteratsiya
+npm install transliteratsia
 ```
 ```
-transliterate = require('transliteratsiya');
+transliterate = require('transliteratsia');
 result = transliterate(word);
 ```
