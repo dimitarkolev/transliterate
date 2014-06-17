@@ -1,9 +1,10 @@
-# Transliterate module - changes cyrillic symbols into latin ones
+# Transliterate module
+Changes cyrillic symbols into latin ones according to http://bg.wikisource.org/wiki/Закон_за_транслитерацията
+
+Usage example:
 ```
 npm install transliteratsiya
 ```
-
-Usage example:
 ```
 transliterate = require('transliteratsiya');
 result = transliterate(word);

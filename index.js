@@ -46,9 +46,14 @@ transliterate = function(text) {
 	    }
 	    return sa ? s : s[0];
 	};
+
+	function exceptions_replace (search) {
+		return search.replace(/iya\b/g, 'ia').replace(/IYA\b/g, 'IA');
+	};
 	
 	var string = '';
 	string = str_replace(cyrillic, latin, text);
+	string = exceptions_replace(string);
 	return string;
 };	
 
