@@ -5,6 +5,6 @@ npm install transliteratsiya
 
 Usage example:
 ```
-transliterate = require('transliteratsiya')
-result = transliterate(word)
+transliterate = require('transliteratsiya');
+result = transliterate(word);
 ```
