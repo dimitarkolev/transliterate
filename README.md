@@ -1,4 +1,2 @@
-transliterate
-=============
-
-Converts cyrillc to roman
+transliteratebg
+===============

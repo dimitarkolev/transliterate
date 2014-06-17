@@ -1,0 +1,13 @@
+{
+    "name": "transliteratsiya",
+    "version": "0.0.1",
+    "description": "Converts cyrillc to roman",
+    "main": "index.js",
+    "author": "Almero",
+    "keywords": ["transliterate", "romanize"],
+    "repository" : {
+        "type": "git",
+        "url": "https://github.com/dimitarkolev/transliteratsiya.git"
+    },
+    "engines": { "node": "*" }
+}
