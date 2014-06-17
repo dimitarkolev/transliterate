@@ -45,10 +45,11 @@ transliterate = function(text) {
 	        }
 	    }
 	    return sa ? s : s[0];
+	};
 	
 	var string = '';
 	string = str_replace(cyrillic, latin, text);
 	return string;
-};
+};	
 
 module.exports = transliterate

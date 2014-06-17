@@ -1,6 +1,6 @@
 {
     "name": "transliteratsiya",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Converts cyrillc to roman",
     "main": "index.js",
     "author": "Almero",
