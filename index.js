@@ -13,7 +13,7 @@ transliterate = function(text) {
 	var latin = [
 		"a", "b", "v", "g", "d", "e", "zh", "z", "i", "y", "k", "l", "m", "n", "o", 
 		"p", "r", "s", "t", "u", "f", "h", "ts", "ch", "sh", "sht", "a", "y", "yu", "ya",
-		"A", "B", "B", "G", "D", "E", "Zh", "Z", "I", "Y", "K", "L", "M", "N", "O", 
+		"A", "B", "V", "G", "D", "E", "Zh", "Z", "I", "Y", "K", "L", "M", "N", "O", 
 		"P", "R", "S", "T", "U", "F", "H", "Ts", "Ch", "Sh", "Sht", "A", "Y", "Yu", "Ya",
 		"I", "i", "Ye", "ye", "I", "i", "Yo", "yo",
 		"i", "I", "g", "G", "u", "U", "s", "S", "o", "O", "c", "C",
