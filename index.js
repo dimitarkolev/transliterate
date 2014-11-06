@@ -9,7 +9,6 @@ transliterate = function(text) {
 		"Á", "á", "Â", "â", "Ã", "ã", "À", "à", "Ç", "ç", "É", "é", "Ê", "ê", "Í", 
 		"í", "Ó", "ó", "Ô", "ô", "Õ", "õ", "Ú", "ú"
 	];
-
 	var latin = [
 		"a", "b", "v", "g", "d", "e", "zh", "z", "i", "y", "k", "l", "m", "n", "o", 
 		"p", "r", "s", "t", "u", "f", "h", "ts", "ch", "sh", "sht", "a", "y", "yu", "ya",
@@ -20,7 +19,22 @@ transliterate = function(text) {
 		"A", "a", "A", "a", "A", "a", "A", "a", "C", "c", "E", "e", "E", "e", "I",
 		"i", "O", "o", "O", "o", "O", "o", "U", "u" 
 	];
-		
+
+	var ukrainian_cyrillic = [
+		'А', 'а', 'Б', 'б', 'В', 'в', 'Г', 'г', 'Ґ', 'ґ', 'Д', 'д', 'Е', 'е', 'Є', 'є', 
+		'Ж', 'ж', 'З', 'з', 'И', 'и', 'І', 'і', 'Ї', 'ї', 'Й', 'й', 'К', 'к', 'Л', 'л',
+		'М', 'м', 'Н', 'н', 'О', 'о', 'П', 'п', 'Р', 'р', 'С', 'с', 'Т', 'т', 'У', 'у',
+		'Ф', 'ф', 'Х', 'х', 'Ц', 'ц', 'Ч', 'ч', 'Ш', 'ш', 'Щ', 'щ', 'Ю', 'ю', 'Я', 'я',
+		'ь', "'",
+	];
+	var ukrainian_latin = [
+		'A', 'a', 'B', 'b', 'V', 'v', 'H', 'h', 'G', 'g', 'D', 'd', 'E', 'e', 'Ye', 'ie',
+		'Zh', 'zh', 'Z', 'z', 'Y', 'y', 'I', 'i', 'Yi', 'i', 'Y', 'i', 'K', 'k', 'L', 'l',
+		'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u', 'F',
+		'f', 'Kh', 'kh', 'Ts', 'ts', 'Ch', 'ch', 'Sh', 'sh', 'Shch', 'shch', 'Yu', 'iu', 'Ya',
+		'ia', '', ''
+	];
+
 	function str_replace (search, replace, subject, count) {
 	    var i = 0, j = 0, temp = '', repl = '', sl = 0, fl = 0,
 	            f = [].concat(search),
@@ -46,14 +60,18 @@ transliterate = function(text) {
 	    }
 	    return sa ? s : s[0];
 	};
-
-	function exceptions_replace (search) {
-		return search.replace(/iya\b/g, 'ia').replace(/IYA\b/g, 'IA');
-	};
 	
 	var string = '';
-	string = str_replace(cyrillic, latin, text);
-	string = exceptions_replace(string);
+	if (region.toLowerCase() == 'us' || region.toLowerCase() == 'ru_ua') {
+		string = str_replace(ukrainian_cyrillic, ukrainian_latin, text);
+		string = word.replace(new RegExp('Зг','g'),'Zgh').replace(new RegExp('зг','g'),'zgh');
+	}
+	else if (region.toLowerCase() == 'bg' || region.toLowerCase() == 'bg_bg') {
+		string = str_replace(cyrillic, latin, text);
+		string = search.replace(/iya\b/g, 'ia').replace(/IYA\b/g, 'IA');
+	} else {
+		string = str_replace(cyrillic, latin, text);
+	}
 	return string;
 };	
 
