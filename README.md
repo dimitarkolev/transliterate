@@ -37,3 +37,5 @@ transliterate = require('transliteratsia');
 transliterate.region = 'ua'; // You can use also ru_UA as region code
 result = transliterate(word); 
 ```
+
+You have to set **transliterate.region** only once. It will keep its value until changed.
