@@ -2,7 +2,7 @@
 Changes cyrillic symbols into latin ones.
 There are transliteration exceptions for the folowing languages.
 
-- Bulgarian: http://bg.wikisource.org/wiki/
+- Bulgarian: http://bg.wikisource.org/wiki/Закон_за_транслитерацията
 - Russian: http://www.rg.ru/printable/2013/03/27/pasporta-dok.html
 - Ukrainian: http://zakon1.rada.gov.ua/cgi-bin/laws/main.cgi?nreg=55-2010-%EF
 
