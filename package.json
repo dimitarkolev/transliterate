@@ -1,7 +1,7 @@
 {
     "name": "transliteratsia",
     "version": "0.1.5",
-    "description": "Converts cyrillc to latin added suppor for exceptions in Bulgarian and Ukrainian laws",
+    "description": "Converts cyrillc to latin.",
     "main": "index.js",
     "author": "Almero",
     "keywords": ["transliterate", "romanize"],
