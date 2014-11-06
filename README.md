@@ -1,10 +1,9 @@
 # Transliterate module
 Changes cyrillic symbols into latin ones.
-There are transliteration exceptions for the folowing languages:
+There are transliteration exceptions for the folowing languages.
 
-Bulgarian http://bg.wikisource.org/wiki/Закон_за_транслитерацията
-
-Ukrainian http://zakon1.rada.gov.ua/cgi-bin/laws/main.cgi?nreg=55-2010-%EF
+- Bulgarian: http://bg.wikisource.org/wiki/Закон_за_транслитерацията
+- Ukrainian: http://zakon1.rada.gov.ua/cgi-bin/laws/main.cgi?nreg=55-2010-%EF
 
 Usage example:
 ```
