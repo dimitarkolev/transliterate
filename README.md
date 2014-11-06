@@ -20,17 +20,20 @@ result = transliterate(word);
 Bulgarian transliration
 ```
 transliterate = require('transliteratsia');
-result = transliterate(word,'bg'); // You can use also bg_BG as region code
+transliterate.region = 'bg'; // You can use also bg_BG as region code
+result = transliterate(word); 
 ```
 
 Russian transliration
 ```
 transliterate = require('transliteratsia');
-result = transliterate(word,'ru'); // You can use also ru_RU as region code
+transliterate.region = 'ru'; // You can use also ru_RU as region code
+result = transliterate(word); 
 ```
 
 Ukrainian transliration
 ```
 transliterate = require('transliteratsia');
-result = transliterate(word,'ua'); // You can use also ru_UA as region code
+transliterate.region = 'ua'; // You can use also ru_UA as region code
+result = transliterate(word); 
 ```

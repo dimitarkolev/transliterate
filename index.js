@@ -14,7 +14,7 @@ transliterate = function(text) {
 		"p", "r", "s", "t", "u", "f", "h", "ts", "ch", "sh", "sht", "a", "y", "yu", "ya",
 		"A", "B", "V", "G", "D", "E", "Zh", "Z", "I", "Y", "K", "L", "M", "N", "O", 
 		"P", "R", "S", "T", "U", "F", "H", "Ts", "Ch", "Sh", "Sht", "A", "Y", "Yu", "Ya",
-		"I", "i", "Ye", "ye", "I", "i", "Yo", "yo", "E". "e",
+		"I", "i", "Ye", "ye", "I", "i", "Yo", "yo", "E", "e",
 		"i", "I", "g", "G", "u", "U", "s", "S", "o", "O", "c", "C",
 		"A", "a", "A", "a", "A", "a", "A", "a", "C", "c", "E", "e", "E", "e", "I",
 		"i", "O", "o", "O", "o", "O", "o", "U", "u" 
@@ -77,17 +77,19 @@ transliterate = function(text) {
 	};
 	
 	var string = '';
-	if (region.toLowerCase() == 'ua' || region.toLowerCase() == 'ru_ua') {
-		string = str_replace(ukrainian_cyrillic, ukrainian_latin, text);
-		string = word.replace(new RegExp('Зг','g'),'Zgh').replace(new RegExp('зг','g'),'zgh');
+	if (transliterate.region) {
+		if (transliterate.region.toLowerCase() == 'ua' || transliterate.region.toLowerCase() == 'ru_ua') {
+			string = str_replace(ukrainian_cyrillic, ukrainian_latin, text);
+			string = string.replace(new RegExp('Зг','g'),'Zgh').replace(new RegExp('зг','g'),'zgh');
+		}
+		else if (transliterate.region.toLowerCase() == 'bg' || transliterate.region.toLowerCase() == 'bg_bg') {
+			string = str_replace(cyrillic, latin, text);
+			string = string.replace(/iya\b/g, 'ia').replace(/IYA\b/g, 'IA');
+		}
+		else if (transliterate.region.toLowerCase() == 'ru' || transliterate.region.toLowerCase() == 'ru_ru') {
+			string = str_replace(russian_cyrillic, russian_latin, text);
+		} 
 	}
-	else if (region.toLowerCase() == 'bg' || region.toLowerCase() == 'bg_bg') {
-		string = str_replace(cyrillic, latin, text);
-		string = search.replace(/iya\b/g, 'ia').replace(/IYA\b/g, 'IA');
-	}
-	else if (region.toLowerCase() == 'ru' || region.toLowerCase() == 'ru_ru') {
-		string = str_replace(russian_cyrillic, russian_latin, text);
-	} 
 	else {
 		string = str_replace(cyrillic, latin, text);
 	}
