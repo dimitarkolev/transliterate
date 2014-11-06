@@ -4,7 +4,7 @@ transliterate = function(text) {
 		"п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ь", "ю", "я",
 		"А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", 
 		"П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ь", "Ю", "Я",
-		"Ї", "ї", "Є", "є", "Ы", "ы", "Ё", "ё",
+		"Ї", "ї", "Є", "є", "Ы", "ы", "Ё", "ё", "Э", 'э',
 		"ı", "İ", "ğ", "Ğ", "ü", "Ü", "ş", "Ş", "ö", "Ö", "ç", "Ç",
 		"Á", "á", "Â", "â", "Ã", "ã", "À", "à", "Ç", "ç", "É", "é", "Ê", "ê", "Í", 
 		"í", "Ó", "ó", "Ô", "ô", "Õ", "õ", "Ú", "ú"
@@ -14,10 +14,25 @@ transliterate = function(text) {
 		"p", "r", "s", "t", "u", "f", "h", "ts", "ch", "sh", "sht", "a", "y", "yu", "ya",
 		"A", "B", "V", "G", "D", "E", "Zh", "Z", "I", "Y", "K", "L", "M", "N", "O", 
 		"P", "R", "S", "T", "U", "F", "H", "Ts", "Ch", "Sh", "Sht", "A", "Y", "Yu", "Ya",
-		"I", "i", "Ye", "ye", "I", "i", "Yo", "yo",
+		"I", "i", "Ye", "ye", "I", "i", "Yo", "yo", "E". "e",
 		"i", "I", "g", "G", "u", "U", "s", "S", "o", "O", "c", "C",
 		"A", "a", "A", "a", "A", "a", "A", "a", "C", "c", "E", "e", "E", "e", "I",
 		"i", "O", "o", "O", "o", "O", "o", "U", "u" 
+	];
+
+	var russian_cyrillic = [
+		"а", "б", "в", "г", "д", "е", "ж", "з", "и", "й", "к", "л", "м", "н", "о",
+		"п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ь", "ю", "я",
+		"А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", 
+		"П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ь", "Ю", "Я",
+		"Ы", "ы", "Ё", "ё", "Э", 'э'
+	];
+	var russian_latin = [
+		"a", "b", "v", "g", "d", "e", "zh", "z", "i", "y", "k", "l", "m", "n", "o", 
+		"p", "r", "s", "t", "u", "f", "kh", "ts", "ch", "sh", "shch", "ie", "", "iu", "ia",
+		"A", "B", "V", "G", "D", "E", "Zh", "Z", "I", "Y", "K", "L", "M", "N", "O", 
+		"P", "R", "S", "T", "U", "F", "Kh", "Ts", "Ch", "Sh", "Shch", "Ie", "", "Iu", "Ia",
+		"Y", "y", "E", "e", "E", "e"
 	];
 
 	var ukrainian_cyrillic = [
@@ -62,14 +77,18 @@ transliterate = function(text) {
 	};
 	
 	var string = '';
-	if (region.toLowerCase() == 'us' || region.toLowerCase() == 'ru_ua') {
+	if (region.toLowerCase() == 'ua' || region.toLowerCase() == 'ru_ua') {
 		string = str_replace(ukrainian_cyrillic, ukrainian_latin, text);
 		string = word.replace(new RegExp('Зг','g'),'Zgh').replace(new RegExp('зг','g'),'zgh');
 	}
 	else if (region.toLowerCase() == 'bg' || region.toLowerCase() == 'bg_bg') {
 		string = str_replace(cyrillic, latin, text);
 		string = search.replace(/iya\b/g, 'ia').replace(/IYA\b/g, 'IA');
-	} else {
+	}
+	else if (region.toLowerCase() == 'ru' || region.toLowerCase() == 'ru_ru') {
+		string = str_replace(russian_cyrillic, russian_latin, text);
+	} 
+	else {
 		string = str_replace(cyrillic, latin, text);
 	}
 	return string;
